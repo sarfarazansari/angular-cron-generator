@@ -2,13 +2,13 @@
 A cron expression generator for AngularJS. In both format quartz and unix
 
 
-##Installation
+## Installation
 
 Install using bower:
 
 `bower install angular-cron-generator`
 
-##Use:
+## Use:
 
 Include the component in your application:
 
@@ -26,14 +26,14 @@ For example, a job selected to run every month on the 11th at 4:10 AM would outp
 
 as a string.
 
-##Configuration:
+## Configuration:
 
 The directive takes an optional attribute of `config`
 
     <cron-selection ng-model="cronString" config="cronConfig"></cron-selection>
     
 
-###allowMultiple
+### allowMultiple
 
 You can also set whether or not you want to allow a user to select multiple values for a cron:
 
@@ -44,7 +44,7 @@ You can also set whether or not you want to allow a user to select multiple valu
 Setting allowMultiple to either true or false will toggle the ability.
 
 
-###Quartz
+### Quartz
 
 By default, the cron expression generated is Unix Cron compatible. Incase you use the [Quartz Scheduler](https://github.com/quartz-scheduler/quartz), you would want to enable the `quartz` mode in the config.
 You can do so by passing that flag as `true` in the config object.
@@ -53,14 +53,14 @@ You can do so by passing that flag as `true` in the config object.
     quartz: true
   }
 
-##Coming Soon:
+## Coming Soon:
 
 * Test cases
 * code optimize
 * and hell yeah Support!
 
 
-##Contribution
+## Contribution
 
 Any help or suggestion would be appreciated. you can contribute creating a separate branch and specific commit message and raise a PR.
 
@@ -68,7 +68,7 @@ After `run` bower and npm commands.
 run `gulp dev`
 
 
-##Contribution
+## Contribution
 
 MIT
 
