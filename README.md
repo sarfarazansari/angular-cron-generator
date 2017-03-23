@@ -1,6 +1,9 @@
 # angular-cron-generator
 A cron expression generator for AngularJS. In both format quartz and unix
 
+## demo
+
+[demo]https://embed.plnkr.co/LCNjHr1s1rlr1FSXesMg/
 
 ## Installation
 
