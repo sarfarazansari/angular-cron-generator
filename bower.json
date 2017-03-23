@@ -6,8 +6,7 @@
   ],
   "description": "A cron expression generator for AngularJS. In both format quartz and unix",
   "main": [
-    "dist/angular-cron-generator.js",
-    "dist/templates.js"
+    "dist/angular-cron-generator.min.js"
   ],
   "keywords": [
     "angular",
