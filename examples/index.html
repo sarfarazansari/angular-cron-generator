@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../dist/angular-cron-generator.css" >
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.js"></script> -->
     
     <script type='text/javascript' src='../dist/angular-cron-generator.min.js'></script>
 
@@ -33,22 +33,29 @@
   </div>
 
     <section class="text-center">
-      <!-- header -->
-      <header>
-        <center>
-          <h1></h1>
-        </center>
-      </header>
-      <!-- end header -->
-
-
+      <h3>Example using multipe allows and quartz format</h3>
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
           <cron-generator ng-model="vm.myOutput" config="vm.cronConfig"></cron-generator>
         </div>
       </div>
 
-      <p class="lead">{{vm.myOutput}}</p>
+      <p class="lead">Expression: {{vm.myOutput}}</p>
+      
+      
+      
+      <h3>Example using single select and unix format</h3>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <cron-generator ng-model="vm.cronString"></cron-generator>
+        </div>
+      </div>
+
+      <p class="lead">Expression: {{vm.cronString}}</p>
+
+
+      
+
 
     </section>
 

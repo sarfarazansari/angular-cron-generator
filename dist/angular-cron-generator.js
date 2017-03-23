@@ -66,11 +66,14 @@ var CronGeneratorService = function () {
     value: function getQuartzCronString(o, allowMultiple) {
       var cron = ["*", "*", "*", "*", "*", "?", "*"],
           count = parseInt(o.base);
-      if (count >= 1) {
-        cron[0] = typeof o.seconds !== "undefined" ? o.seconds : 0;
+      if (count <= 1) {
+        cron[1] = typeof o.minutes !== "undefined" ? "*/" + o.minutes : "*";
+      } else if (count >= 1) {
         cron[1] = typeof o.minutes !== "undefined" ? o.minutes : "*";
       }
-      if (count >= 2) {
+      if (count <= 2) {
+        cron[2] = typeof o.hours !== "undefined" ? "*/" + o.hours : "*";
+      } else if (count >= 2) {
         cron[2] = typeof o.hours !== "undefined" ? o.hours : "*";
       }
       if (count >= 3) {
@@ -116,19 +119,26 @@ var CronGeneratorService = function () {
     value: function getUnixCronString(o) {
       var cron = ["*", "*", "*", "*", "*"],
           count = parseInt(o.base);
-      if (count >= 1) {
+      if (count <= 1) {
+        cron[0] = typeof o.minutes !== "undefined" ? "*/" + o.minutes : "*";
+      } else if (count >= 1) {
         cron[0] = typeof o.minutes !== "undefined" ? o.minutes : "*";
       }
-      if (count >= 2) {
+      if (count <= 2) {
+        cron[1] = typeof o.hours !== "undefined" ? "*/" + o.hours : "*";
+      } else if (count >= 2) {
         cron[1] = typeof o.hours !== "undefined" ? o.hours : "*";
       }
-      if (count >= 3) {
+      if (count <= 3) {
+        cron[2] = typeof o.daysOfMonth !== "undefined" ? "*/" + o.daysOfMonth : "*";
+      } else if (count >= 3) {
         cron[2] = typeof o.daysOfMonth !== "undefined" ? o.daysOfMonth : "*";
       }
       if (count >= 4) {
         cron[4] = typeof o.days !== "undefined" ? o.days : "*";
       }
       if (count >= 5) {
+        cron[4] = "*";
         cron[3] = typeof o.months !== "undefined" ? o.months : "*";
       }
       return cron.join(" ");
@@ -225,10 +235,12 @@ function CronGeneratorDirective(cronGeneratorService) {
     }, true);
 
     $scope.initKeys = function () {
+
+      resetInitialValues();
+
       //due to angular issue
       if ($scope.allowMultiple) {
         //http://stackoverflow.com/questions/18751129/angularjs-selecting-multiple-options
-        resetInitialValues();
         return;
       }
       var o = parseInt($scope.myFrequency.base);

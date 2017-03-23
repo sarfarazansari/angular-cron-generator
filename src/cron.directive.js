@@ -88,10 +88,12 @@ export function CronGeneratorDirective (cronGeneratorService) {
     }, true);
 
     $scope.initKeys = function(){
+      
+      resetInitialValues();
+
       //due to angular issue
       if($scope.allowMultiple){
           //http://stackoverflow.com/questions/18751129/angularjs-selecting-multiple-options
-          resetInitialValues();
           return;
       }
       var o =  parseInt($scope.myFrequency.base);
